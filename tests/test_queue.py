@@ -4,7 +4,7 @@ from stacks_queues.queue import Queue, QueueFullException
 # Fixture to start each test with a new Queue
 @pytest.fixture()
 def queue() -> Queue:
-    return Queue()
+    return Queue(20)
 
 
 def test_it_can_create_a_queue(queue):
@@ -14,6 +14,7 @@ def test_it_can_create_a_queue(queue):
 def test_you_can_add_to_queue(queue):
     queue.enqueue(10)
     assert str(queue) == "[10]"
+
 
 def test_you_can_add_multiple_items(queue):
     queue.enqueue(10)
